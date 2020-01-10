@@ -3,10 +3,10 @@ package collector
 import "github.com/prometheus/client_golang/prometheus"
 
 var opsQueued = prometheus.NewGaugeVec(prometheus.GaugeOpts{
-	Namespace: "",
-	Subsystem: "blob_storage",
-	Name:      "ops_queued",
-	Help:      "Number of bolob storage operations waiting to process.",
+	Namespace: "host",
+	Subsystem: "status",
+	Name:      "name",
+	Help:      "host status.",
 }, []string{"name"})
 
 func UpdateHostStatus(labels prometheus.Labels, status float64) {
