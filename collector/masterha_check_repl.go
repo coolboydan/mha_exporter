@@ -7,7 +7,7 @@ var opsQueued = prometheus.NewGaugeVec(prometheus.GaugeOpts{
 	Subsystem: "status",
 	Name:      "name",
 	Help:      "host status.",
-}, []string{"name"})
+}, []string{"name", "host", "status"})
 
 func UpdateHostStatus(labels prometheus.Labels, status float64) {
 	opsQueued.With(labels).Set(status)
