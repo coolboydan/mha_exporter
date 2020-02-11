@@ -16,8 +16,8 @@ func main() {
 	flag.Parse()
 
 	collector.UpdateHostStatus(prometheus.Labels{"name": "app1", "host": "192.186.1.1:3306", "status": "health"}, 0)
-	collector.UpdateHostStatus(prometheus.Labels{"name": "app1", "host": "192.186.1.1:3306", "status": "role"}, 2)
-	collector.UpdateHostStatus(prometheus.Labels{"name": "app1", "host": "192.186.1.2:3306", "status": "role"}, 3)
+	collector.UpdateHostStatus(prometheus.Labels{"name": "app1", "host": "192.186.1.1:3306", "status": "role"}, 0)
+	collector.UpdateHostStatus(prometheus.Labels{"name": "app1", "host": "192.186.1.2:3306", "status": "role"}, 0)
 	http.Handle("/metrics", promhttp.Handler())
 	log.Fatal(http.ListenAndServe(*addr, nil))
 }
